@@ -25,6 +25,20 @@
                 <span>User List</span></a>
         </li>
 
+        <!-- Nav Item - Approved List -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('admin/approve'); ?>">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Approved List</span></a>
+        </li>
+
+        <!-- Nav Item - Unapproved List -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('admin/unapprove'); ?>">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Unapproved List</span></a>
+        </li>
+
     <?php endif; ?>
 
     <!-- Divider -->
@@ -44,9 +58,30 @@
 
     <!-- Nav Item - Edit Profile -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="<?= base_url('user/edit'); ?>">
             <i class="fas fa-fw fa-user-edit"></i>
             <span>Edit Profile</span></a>
+    </li>
+
+    <!-- Nav Item - Form 1 -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('user/form1'); ?>">
+            <i class="fas fa-fw fa-user-edit"></i>
+            <span>Form 1</span></a>
+    </li>
+
+    <!-- Nav Item - Form 2 -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('user/form2'); ?>">
+            <i class="fas fa-fw fa-user-edit"></i>
+            <span>Form 2</span></a>
+    </li>
+
+    <!-- Nav Item - Form 3 -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('user/form3'); ?>">
+            <i class="fas fa-fw fa-user-edit"></i>
+            <span>Form 3</span></a>
     </li>
 
     <!-- Divider -->

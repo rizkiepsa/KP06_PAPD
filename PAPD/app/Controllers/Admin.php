@@ -43,4 +43,28 @@ class Admin extends BaseController
 
         return view('admin/detail', $data);
     }
+
+    public function approve()
+    {
+        $data['title'] = 'approve';
+        $this->builder->select('users.id as userid, username, email, approval_status, name');
+        $this->builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
+        $this->builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
+        $query = $this->builder->get();
+
+        $data['users'] = $query->getResult();
+        return view('admin/approve', $data);
+    }
+
+    public function unapprove()
+    {
+        $data['title'] = 'unapprove';
+        $this->builder->select('users.id as userid, username, email, approval_status, name');
+        $this->builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
+        $this->builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
+        $query = $this->builder->get();
+
+        $data['users'] = $query->getResult();
+        return view('admin/unapprove', $data);
+    }
 }
