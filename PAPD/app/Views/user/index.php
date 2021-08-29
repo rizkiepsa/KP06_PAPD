@@ -10,50 +10,43 @@
         </div>
     </h2>
 
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="row g-0">
-                <div class="col-md-2">
-                    <img style="width: 200px; height:auto;" src="<?= base_url(); ?>/img/<?= user()->user_image; ?>" alt="...">
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Contact</h5>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Name : <?= user()->fullname; ?></li>
-                    <li class="list-group-item">Nik : <?= user()->nik; ?></li>
-                    <li class="list-group-item">Instansi : <?= user()->instansi; ?></li>
-                    <li class="list-group-item">Email : <?= user()->email; ?></li>
-                    <li class="list-group-item">No Hp :<?= user()->no_hp; ?></li>
-                    <li class="list-group-item">Approval Status :<?= user()->approval_status; ?></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Form</h5>
-                    <p class="card-text"><?= user()->addres; ?></p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col">
-                                <div id="map">
+    <div class="card" style="width: auto;">
+        <img style="width: 200px; height:auto; align:center; margin:auto;" src="<?= base_url(); ?>/img/<?= user()->user_image; ?>" alt="...">
+        <div class="card-body">
+            <h5 class="card-title" style="text-align: center;">Contact</h5>
+            <ul class="list-group list-group-flush">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th scope="row" style="width: 200px;">Nama</th>
+                            <td><?= user()->fullname; ?> lorem</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Nik</th>
+                            <td><?= user()->nik; ?></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Instansi</th>
+                            <td><?= user()->instansi; ?></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Email</th>
+                            <td><?= user()->email; ?></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">No Hp</th>
+                            <td><?= user()->no_hp; ?></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Approval Status</th>
+                            <td><?= user()->approval_status; ?></td>
+                        </tr>
 
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                    </tbody>
+                </table>
+            </ul>
         </div>
     </div>
-
 
 
 </div>

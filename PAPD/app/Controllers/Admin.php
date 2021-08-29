@@ -67,4 +67,15 @@ class Admin extends BaseController
         $data['users'] = $query->getResult();
         return view('admin/unapprove', $data);
     }
+
+    public function subdomain()
+    {
+        $data['title'] = 'Data subdomain';
+        return view('admin/subdomain', $data);
+    }
+    public function formSubdomain()
+    {
+        $data['title'] = 'Form subdomain';
+        return view('admin/formSubdomain', $data);
+    }
 }

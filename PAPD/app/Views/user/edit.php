@@ -6,10 +6,6 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Edit User</h1>
 
-    <!-- Form -->
-    <!-- <h2 class="h3 mb-4 text-gray-800">Form Edit User</h2> -->
-
-
     <form>
         <div class="form-group row">
             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>

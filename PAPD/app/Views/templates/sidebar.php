@@ -39,6 +39,20 @@
                 <span>Unapproved List</span></a>
         </li>
 
+        <!-- Nav Item - Subdomain List-->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('admin/subdomain'); ?>">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Subdomain</span></a>
+        </li>
+
+        <!-- Nav Item - Form Subdomain-->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('admin/formSubdomain'); ?>">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Form Subdomain</span></a>
+        </li>
+
     <?php endif; ?>
 
     <!-- Divider -->
@@ -82,6 +96,20 @@
         <a class="nav-link" href="<?= base_url('user/form3'); ?>">
             <i class="fas fa-fw fa-user-edit"></i>
             <span>Form 3</span></a>
+    </li>
+
+    <!-- Nav Item - Tampil Form -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('user/tampil'); ?>">
+            <i class="fas fa-fw fa-user-edit"></i>
+            <span>Data Form</span></a>
+    </li>
+
+    <!-- Nav Item - Tampil Form 2 -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('user/tampil2'); ?>">
+            <i class="fas fa-fw fa-user-edit"></i>
+            <span>Data Form opsi 2</span></a>
     </li>
 
     <!-- Divider -->

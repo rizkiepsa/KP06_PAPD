@@ -33,4 +33,28 @@ class User extends BaseController
         $data['title'] = 'Form 3';
         return view('user/form3', $data);
     }
+
+    public function tampil()
+    {
+        $data['title'] = 'Data Form';
+        return view('user/tampil', $data);
+    }
+
+    public function tampil2()
+    {
+        $data['title'] = 'Data Form 2';
+        return view('user/tampil2', $data);
+    }
+
+    public function tampilForm2()
+    {
+        $data['title'] = 'Data Form 2';
+        return view('user/tampilForm2', $data);
+    }
+
+    public function tampilForm3()
+    {
+        $data['title'] = 'Data Form 3';
+        return view('user/tampilForm3', $data);
+    }
 }
