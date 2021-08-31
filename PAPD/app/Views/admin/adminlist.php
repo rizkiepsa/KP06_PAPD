@@ -5,16 +5,11 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">User List</h1>
-    <?php if (session()->getFlashdata('pesan')) : ?>
-        <div class="alert alert-success" role="alert">
-            <?= session()->getFlashdata('pesan'); ?>
-        </div>
-    <?php endif; ?>
 
     <div class="row">
         <!-- User List Card -->
-        <div class="col-xl-2 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2 tombol-aktif">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -23,8 +18,16 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $approveduser ?></div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-user fa-2x text-white-300"></i>
+                            <a href="<?= base_url('admin'); ?>" class="btn btn-primary btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="text">User List</span>
+                            </a>
                         </div>
+                    </div>
+                    <div class="row no-gutters align-items-center btn-idx-admin">
+
                     </div>
                 </div>
             </div>
@@ -52,8 +55,8 @@
             </div>
         </div>
         <!-- Admin List Card -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
+        <div class="col-xl-2 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2 tombol-aktif">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -62,12 +65,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $admin; ?></div>
                         </div>
                         <div class="col-auto">
-                            <a href="<?= base_url('admin'); ?>/adminlist" class="btn btn-primary btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-user"></i>
-                                </span>
-                                <span class="text">Admin List</span>
-                            </a>
+                            <i class="fas fa-user fa-2x text-white-300"></i>
                         </div>
                     </div>
                 </div>
@@ -76,11 +74,11 @@
     </div>
 
     <div class="row">
-        <!-- approved user -->
+        <!-- admin list -->
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Approved User</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Admin List</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -90,26 +88,19 @@
                                     <th>#</th>
                                     <th>Username</th>
                                     <th>Email</th>
-                                    <th>Status Approval</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($users as $user) : ?>
-                                    <?php if ($user->approval_status == 'approved' && $user->name != 'admin') : ?>
+                                    <?php if ($user->name == 'admin') : ?>
                                         <tr>
                                             <th><?= $i++; ?></th>
                                             <td><?= $user->username; ?></td>
                                             <td><?= $user->email; ?></td>
-                                            <td><?= $user->approval_status; ?></td>
                                             <td>
                                                 <a href="<?= base_url('admin/' . $user->userid); ?>" class="btn btn-info">detail</a>
-                                                <form action="/admin/deleteuser" method="post" class="d-inline">
-                                                    <?= csrf_field(); ?>
-                                                    <input type="hidden" id="userid" class="userid" name="userid" value="<?= $user->userid; ?>">
-                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin?');">Delete</button>
-                                                </form>
                                             </td>
                                         </tr>
                                     <?php endif; ?>
@@ -121,5 +112,6 @@
             </div>
         </div>
     </div>
+
 </div>
 <?= $this->endSection(); ?>

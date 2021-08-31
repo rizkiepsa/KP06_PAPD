@@ -22,6 +22,9 @@
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('admin'); ?>">
                 <i class="fas fa-fw fa-users"></i>
+                <?php if ($needapproval > 0) : ?>
+                    <span class="badge badge-danger badge-counter"><?= $needapproval; ?>+</span>
+                <?php endif; ?>
                 <span>User List</span></a>
         </li>
 
@@ -44,7 +47,7 @@
 
     <!-- Nav Item - Edit Profile -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="<?= base_url('user'); ?>/edit">
             <i class="fas fa-fw fa-user-edit"></i>
             <span>Edit Profile</span></a>
     </li>

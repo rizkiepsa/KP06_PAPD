@@ -13,8 +13,8 @@
 
     <div class="row">
         <!-- User List Card -->
-        <div class="col-xl-2 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2 tombol-aktif">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -23,15 +23,20 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $approveduser ?></div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-user fa-2x text-white-300"></i>
+                            <a href="<?= base_url('admin'); ?>" class="btn btn-primary btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="text">User List</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Need Approval List Card -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-<?= ($needapproval > 0) ? 'warning' : 'primary'; ?> shadow h-100 py-2">
+        <div class="col-xl-2 col-md-6 mb-4">
+            <div class="card border-left-<?= ($needapproval > 0) ? 'warning' : 'primary'; ?> shadow h-100 py-2 tombol-aktif">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -40,12 +45,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $needapproval; ?></div>
                         </div>
                         <div class="col-auto">
-                            <a href="<?= base_url('admin'); ?>/approval" class="btn btn-<?= ($needapproval > 0) ? 'warning' : 'primary'; ?> btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-user"></i>
-                                </span>
-                                <span class="text">Approval</span>
-                            </a>
+                            <i class="fas fa-user fa-2x text-white-300"></i>
                         </div>
                     </div>
                 </div>
@@ -70,13 +70,16 @@
                             </a>
                         </div>
                     </div>
+                    <div class="row no-gutters align-items-center btn-idx-admin">
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <!-- approved user -->
+        <!-- pending approval user -->
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -97,15 +100,20 @@
                             <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($users as $user) : ?>
-                                    <?php if ($user->approval_status == 'approved' && $user->name != 'admin') : ?>
+                                    <?php if ($user->approval_status != 'approved') : ?>
                                         <tr>
                                             <th><?= $i++; ?></th>
                                             <td><?= $user->username; ?></td>
                                             <td><?= $user->email; ?></td>
-                                            <td><?= $user->approval_status; ?></td>
+                                            <td>pending</td>
                                             <td>
                                                 <a href="<?= base_url('admin/' . $user->userid); ?>" class="btn btn-info">detail</a>
-                                                <form action="/admin/deleteuser" method="post" class="d-inline">
+                                                <form action="/admin/approve" method="post" enctype="multipart/form-data" class="d-inline">
+                                                    <?= csrf_field(); ?>
+                                                    <input type="hidden" id="userid" class="userid" name="userid" value="<?= $user->userid; ?>">
+                                                    <button type="submit" class="btn btn-primary">Approve</button>
+                                                </form>
+                                                <form action="/admin/deleteuserapproval" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" id="userid" class="userid" name="userid" value="<?= $user->userid; ?>">
                                                     <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin?');">Delete</button>
@@ -121,5 +129,6 @@
             </div>
         </div>
     </div>
+
 </div>
 <?= $this->endSection(); ?>

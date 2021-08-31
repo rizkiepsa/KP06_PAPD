@@ -21,6 +21,9 @@
     <!-- Custom styles for this page -->
     <link href="<?= base_url(); ?>/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link href="<?= base_url(); ?>/css/style.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body id="page-top">
@@ -98,6 +101,24 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url(); ?>/js/sb-admin-2.min.js"></script>
+
+    <!-- Picture Preview -->
+    <script>
+        function previewImg() {
+            const foto = document.querySelector('#foto');
+            const fotoLabel = document.querySelector('.custom-file-label');
+            const imgPreview = document.querySelector('.img-preview');
+
+            fotoLabel.textContent = foto.files[0].name;
+
+            const filefoto = new FileReader();
+            filefoto.readAsDataURL(foto.files[0]);
+
+            filefoto.onload = function(e) {
+                imgPreview.src = e.target.result;
+            }
+        }
+    </script>
 
     <!-- Page level plugins -->
     <script src="<?= base_url(); ?>/vendor/datatables/jquery.dataTables.min.js"></script>
