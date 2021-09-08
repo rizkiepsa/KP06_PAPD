@@ -9,6 +9,7 @@ class User extends BaseController
     {
         $this->db = \Config\Database::connect();
         $this->builder = $this->db->table('users');
+        $this->table_npd = $this->db->table('nama_perangkat_daerah');
     }
     public function index()
     {
@@ -16,6 +17,11 @@ class User extends BaseController
         $this->builder->where('approval_status', null);
         $countneedapproval = $this->builder->countAllResults();
         $data['needapproval'] = $countneedapproval;
+
+        // $this->builder->select('nama');
+        // $this->builder->join('nama_perangkat_daerah', 'nama_perangkat_daerah.npd_id = users.npd_id');
+        // $query = $this->builder->get();
+        // $data['users'] = $query->getResult();
 
         $data['title'] = 'User Profile';
         return view('user/index', $data);
@@ -48,11 +54,16 @@ class User extends BaseController
         $users = new \Myth\Auth\Models\UserModel();
         $this->builder->where('approval_status', null);
         $countneedapproval = $this->builder->countAllResults();
+
+        $this->table_npd->select('*');
+        $query = $this->table_npd->get();
+
         $data = [
             'title'  => 'Edit Profile',
             'needapproval' => $countneedapproval,
             'validation' => \Config\Services::validation(),
-            'user' => $users->getUser($id)
+            'user' => $users->getUser($id),
+            'npds' => $query->getResult()
         ];
         return view('user/edit', $data);
     }
