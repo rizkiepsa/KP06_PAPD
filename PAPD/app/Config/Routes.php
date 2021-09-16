@@ -37,7 +37,10 @@ $routes->get('/admin/index', 'Admin::index', ['filter' => 'role:admin']);
 $routes->get('/admin/approval', 'Admin::approval', ['filter' => 'role:admin']);
 $routes->get('/admin/adminlist', 'Admin::adminlist', ['filter' => 'role:admin']);
 $routes->get('/admin/(:num)', 'Admin::detail/$1', ['filter' => 'role:admin']);
+$routes->get('/domain', 'Domain::index', ['filter' => 'role:admin']);
 $routes->get('/user/edit/(:segment)', 'User::edit/$1');
+
+
 
 /*
  * --------------------------------------------------------------------

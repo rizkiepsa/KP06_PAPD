@@ -91,7 +91,8 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Username</th>
+                                    <th>Nik</th>
+                                    <th>Name</th>
                                     <th>Email</th>
                                     <th>Status Approval</th>
                                     <th>Action</th>
@@ -103,7 +104,8 @@
                                     <?php if ($user->approval_status != 'approved') : ?>
                                         <tr>
                                             <th><?= $i++; ?></th>
-                                            <td><?= $user->username; ?></td>
+                                            <th><?= $user->nik; ?></th>
+                                            <td><?= $user->fullname; ?></td>
                                             <td><?= $user->email; ?></td>
                                             <td>pending</td>
                                             <td>

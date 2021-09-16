@@ -86,7 +86,8 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Username</th>
+                                    <th>Nik</th>
+                                    <th>Name</th>
                                     <th>Email</th>
                                     <th>Action</th>
                                 </tr>
@@ -97,7 +98,8 @@
                                     <?php if ($user->name == 'admin') : ?>
                                         <tr>
                                             <th><?= $i++; ?></th>
-                                            <td><?= $user->username; ?></td>
+                                            <th><?= $user->nik; ?></th>
+                                            <td><?= $user->fullname; ?></td>
                                             <td><?= $user->email; ?></td>
                                             <td>
                                                 <a href="<?= base_url('admin/' . $user->userid); ?>" class="btn btn-info">detail</a>

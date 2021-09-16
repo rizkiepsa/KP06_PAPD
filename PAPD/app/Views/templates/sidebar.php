@@ -1,4 +1,4 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion fixed-posisi" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -15,7 +15,7 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            User Management
+            Dashboard
         </div>
 
         <!-- Nav Item - User List -->
@@ -26,6 +26,13 @@
                     <span class="badge badge-danger badge-counter"><?= $needapproval; ?>+</span>
                 <?php endif; ?>
                 <span>User List</span></a>
+        </li>
+
+        <!-- Nav Item - Domain List -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('domain'); ?>">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Domain List</span></a>
         </li>
 
     <?php endif; ?>

@@ -5,6 +5,11 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Edit User</h1>
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+        </div>
+    <?php endif; ?>
 
     <!-- Form -->
     <h2 class="h3 mb-4 text-gray-800">Form Edit User</h2>
